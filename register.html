@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmer Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="bg-green-50 flex items-center justify-center h-screen">
+
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">
+      <i class="fas fa-leaf mr-2"></i> Farmer Register
+    </h2>
+
+    <form action="register_process.php" method="POST" class="space-y-4">
+      <!-- Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" name="fullname" required 
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" required 
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" name="password" required 
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" name="confirm_password" required 
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"/>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" 
+        class="w-full bg-yellow-400 text-green-900 px-4 py-2 rounded-full font-medium hover:bg-yellow-500 transition">
+        <i class="fas fa-user-plus mr-1"></i> Register
+      </button>
+    </form>
+
+    <!-- Link to login -->
+    <p class="text-sm text-gray-600 mt-4 text-center">
+      Already have an account?
+      <a href="login.html" class="text-green-700 font-medium hover:underline">Login</a>
+    </p>
+  </div>
+</body>
+</html>

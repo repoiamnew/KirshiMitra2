@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajesh Kumar - Farming Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .profile-stats span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+        .post-interaction {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+        .post-actions i {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .profile-stats span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-tractor text-green-600 text-2xl mr-2"></i>
+                <span class="font-semibold text-xl">FarmConnect</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-600 hover:text-green-600"><i class="fas fa-home text-lg"></i></a>
+                <a href="#" class="text-gray-600 hover:text-green-600"><i class="fas fa-search text-lg"></i></a>
+                <a href="#" class="text-gray-600 hover:text-green-600"><i class="fas fa-bell text-lg"></i></a>
+                <a href="#" class="text-gray-600 hover:text-green-600"><i class="fas fa-user text-lg"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Profile Header -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-32 h-32 mb-4 md:mb-0 md:mr-8">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Profile" class="w-full h-full object-cover rounded-full border-4 border-green-100">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                        <h1 class="text-2xl font-bold text-green-800">Rajesh Kumar</h1>
+                        <div class="mt-2 md:mt-0">
+                            <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition mr-2">
+                                <i class="fas fa-edit mr-1"></i> Edit Profile
+                            </button>
+                            <button class="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-200 transition">
+                                <i class="fas fa-share-alt mr-1"></i> Share Profile
+                            </button>
+                        </div>
+                    </div>
+                    <div class="profile-stats mb-4 text-gray-600">
+                        <span><strong>42</strong> posts</span>
+                        <span><strong>1,248</strong> followers</span>
+                        <span><strong>586</strong> following</span>
+                        <span><strong>15</strong> years farming</span>
+                    </div>
+                    <p class="text-gray-800">
+                        Passionate farmer from Punjab. Growing wheat, rice, cotton, and soybean. 
+                        Always experimenting with sustainable farming practices. 
+                        #OrganicFarming #SustainableAgriculture
+                    </p>
+                    <p class="text-green-600 mt-2">
+                        <i class="fas fa-map-marker-alt mr-1"></i> Amritsar, Punjab, India
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Cards -->
+        <h2 class="text-2xl font-bold text-center text-green-800 mb-6">Farm Metrics</h2>
+        <div class="flex flex-wrap -mx-2 mb-8">
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow h-full">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-seedling text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Current Crops</h3>
+                            <p class="text-2xl font-bold">4</p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-green-600 text-sm hover:underline">View Details</a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow h-full">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-rupee-sign text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">This Season</h3>
+                            <p class="text-2xl font-bold">₹1,42,500</p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-green-600 text-sm hover:underline">View Sales</a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow h-full">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-chart-line text-yellow-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Projected Profit</h3>
+                            <p class="text-2xl font-bold">₹68,200</p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-green-600 text-sm hover:underline">View Analysis</a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/4 px-2 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow h-full">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-landmark text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Loans</h3>
+                            <p class="text-2xl font-bold">₹2,50,000</p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-green-600 text-sm hover:underline">Manage Accounts</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Portfolio Summary -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-green-800">AI Portfolio Summary</h3>
+                <button class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-sync-alt mr-1"></i> Refresh
+                </button>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="mb-4">Based on your current crops (Wheat, Rice, Cotton, and Soybean) and market trends, your projected revenue for this season is ₹1,42,500 with an estimated profit margin of 48%. The wheat prices are rising (+12%) while cotton prices have dipped slightly (-3%). Consider delaying cotton sales if storage is available.</p>
+                <p>Your fertilizer expenses are 18% below average for similar farms in your region. The AI recommends exploring our partner bank's Kisan Credit Card offer with 4% lower interest than your current loan.</p>
+            </div>
+        </div>
+
+        <!-- Gallery Header -->
+        <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-2">
+            <h3 class="text-2xl font-semibold text-green-800">Your Farm Gallery</h3>
+            <div class="flex space-x-2">
+                <button class="px-3 py-1 text-gray-600 border rounded-lg hover:bg-gray-100">
+                    <i class="fas fa-th-large mr-1"></i> Grid
+                </button>
+                <button class="px-3 py-1 text-gray-600 border rounded-lg hover:bg-gray-100">
+                    <i class="fas fa-list mr-1"></i> List
+                </button>
+            </div>
+        </div>
+
+        <!-- Instagram-style Gallery Grid -->
+        <div class="portfolio-grid mb-8">
+            <!-- Post 1 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Farm" class="post-image">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-500"><i class="far fa-clock mr-1"></i> 15 June 2023</span>
+                        <button class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm mb-3">Wheat harvest season in full swing. Expecting 25 quintals per acre this year. #Harvest2023 #Wheat</p>
+                    <div class="post-interaction">
+                        <div class="post-actions">
+                            <i class="far fa-heart text-red-500"></i> <span class="text-sm text-gray-600">142</span>
+                            <i class="far fa-comment text-blue-500 ml-3"></i> <span class="text-sm text-gray-600">23</span>
+                        </div>
+                        <div class="post-save">
+                            <i class="far fa-bookmark text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Post 2 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1519098901909-b1553a1190af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                     alt="Farm" class="post-image">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-500"><i class="far fa-clock mr-1"></i> 2 May 2023</span>
+                        <button class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm mb-3">New irrigation system installed. Water usage down by 30% already. #WaterConservation #SustainableFarming</p>
+                    <div class="post-interaction">
+                        <div class="post-actions">
+                            <i class="far fa-heart text-red-500"></i> <span class="text-sm text-gray-600">98</span>
+                            <i class="far fa-comment text-blue-500 ml-3"></i> <span class="text-sm text-gray-600">17</span>
+                        </div>
+                        <div class="post-save">
+                            <i class="far fa-bookmark text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Post 3 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Farm" class="post-image">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-500"><i class="far fa-clock mr-1"></i> 22 April 2023</span>
+                        <button class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm mb-3">Organic fertilizer trial on the south field showing promising results. #OrganicFarming #Innovation</p>
+                    <div class="post-interaction">
+                        <div class="post-actions">
+                            <i class="far fa-heart text-red-500"></i> <span class="text-sm text-gray-600">127</span>
+                            <i class="far fa-comment text-blue-500 ml-3"></i> <span class="text-sm text-gray-600">29</span>
+                        </div>
+                        <div class="post-save">
+                            <i class="far fa-bookmark text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Post 4 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                     alt="Farm" class="post-image">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-500"><i class="far fa-clock mr-1"></i> 10 March 2023</span>
+                        <button class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm mb-3">Wheat crop looking healthy after the late winter rains. #WheatCrop #HealthyHarvest</p>
+                    <div class="post-interaction">
+                        <div class="post-actions">
+                            <i class="far fa-heart text-red-500"></i> <span class="text-sm text-gray-600">115</span>
+                            <i class="far fa-comment text-blue-500 ml-3"></i> <span class="text-sm text-gray-600">19</span>
+                        </div>
+                        <div class="post-save">
+                            <i class="far fa-bookmark text-yellow-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+            <button class="bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition">
+                <i class="fas fa-plus mr-2"></i> Add New Post
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">FarmConnect</h3>
+                    <p class="text-green-200">Connecting farmers across India</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-green-200"><i class="fab fa-facebook-f text-lg"></i></a>
+                    <a href="#" class="text-white hover:text-green-200"><i class="fab fa-twitter text-lg"></i></a>
+                    <a href="#" class="text-white hover:text-green-200"><i class="fab fa-instagram text-lg"></i></a>
+                    <a href="#" class="text-white hover:text-green-200"><i class="fab fa-youtube text-lg"></i></a>
+                </div>
+            </div>
+            <div class="text-center text-green-200 mt-6 text-sm">
+                <p>© 2023 FarmConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

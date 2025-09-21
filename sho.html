@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Essentials Shop</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Shop Section -->
+  <section id="shop" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Farm Essentials Shop</h2>
+      
+      <!-- Categories -->
+      <div class="flex flex-wrap -mx-2 mb-8">
+        <div class="w-full md:w-1/4 px-2 mb-4">
+          <div class="bg-gray-100 p-4 rounded-lg h-full">
+            <h3 class="text-xl font-semibold mb-3 text-green-700">Seeds & Plants</h3>
+            <p class="mb-4">High-quality seeds for all major crops with germination guarantee.</p>
+            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+              Browse <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/4 px-2 mb-4">
+          <div class="bg-gray-100 p-4 rounded-lg h-full">
+            <h3 class="text-xl font-semibold mb-3 text-green-700">Fertilizers</h3>
+            <p class="mb-4">Organic and chemical fertilizers with bulk discounts for farmers.</p>
+            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+              Browse <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/4 px-2 mb-4">
+          <div class="bg-gray-100 p-4 rounded-lg h-full">
+            <h3 class="text-xl font-semibold mb-3 text-green-700">Equipment</h3>
+            <p class="mb-4">Tools and machinery with EMI options and government subsidies.</p>
+            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+              Browse <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/4 px-2 mb-4">
+          <div class="bg-gray-100 p-4 rounded-lg h-full">
+            <h3 class="text-xl font-semibold mb-3 text-green-700">Agro Services</h3>
+            <p class="mb-4">Soil testing, crop consulting, and other essential services.</p>
+            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+              Browse <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deals -->
+      <h3 class="text-2xl font-semibold mb-6 text-green-800">Today's Deals</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        
+        <!-- Product 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=1470&q=80" 
+                 alt="Organic Pulse Seeds" class="w-full h-40 object-cover">
+            <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">20% OFF</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-semibold">Organic Pulse Seeds</h4>
+            <div class="flex items-center mb-1">
+              <span class="text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </span>
+              <span class="text-gray-600 text-xs ml-1">(42)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-green-600 font-bold">₹450</span>
+                <span class="text-gray-500 text-sm line-through ml-1">₹550</span>
+              </div>
+              <button class="text-green-600 hover:text-green-800">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=1470&q=80" 
+                 alt="Vermicompost" class="w-full h-40 object-cover">
+            <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">15% OFF</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-semibold">Vermicompost (5kg)</h4>
+            <div class="flex items-center mb-1">
+              <span class="text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <span class="text-gray-600 text-xs ml-1">(36)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-green-600 font-bold">₹220</span>
+                <span class="text-gray-500 text-sm line-through ml-1">₹260</span>
+              </div>
+              <button class="text-green-600 hover:text-green-800">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1519098901909-b1553a1190af?auto=format&fit=crop&w=1374&q=80" 
+                 alt="Drip Irrigation Kit" class="w-full h-40 object-cover">
+            <span class="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">GOVT SUBSIDY</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-semibold">Drip Irrigation Kit</h4>
+            <div class="flex items-center mb-1">
+              <span class="text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+              <span class="text-gray-600 text-xs ml-1">(78)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-green-600 font-bold">₹3,850</span>
+                <span class="text-gray-500 text-sm line-through ml-1">₹5,500</span>
+              </div>
+              <button class="text-green-600 hover:text-green-800">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1604977047416-9b6bb783ec9c?auto=format&fit=crop&w=1470&q=80" 
+                 alt="NPK Fertilizer" class="w-full h-40 object-cover">
+            <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-semibold">NPK Fertilizer (50kg)</h4>
+            <div class="flex items-center mb-1">
+              <span class="text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <span class="text-gray-600 text-xs ml-1">(29)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-green-600 font-bold">₹1,350</span>
+                <span class="text-gray-500 text-sm line-through ml-1">₹1,500</span>
+              </div>
+              <button class="text-green-600 hover:text-green-800">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1550583720-b253f5b0d7f6?auto=format&fit=crop&w=1470&q=80" 
+                 alt="Soybean Seeds" class="w-full h-40 object-cover">
+            <span class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
+          </div>
+          <div class="p-3">
+            <h4 class="font-semibold">Soybean Seeds (Hybrid)</h4>
+            <div class="flex items-center mb-1">
+              <span class="text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+              <span class="text-gray-600 text-xs ml-1">(14)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-green-600 font-bold">₹680</span>
+              </div>
+              <button class="text-green-600 hover:text-green-800">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

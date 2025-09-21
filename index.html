@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiMitra - Farmer's All-in-One Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+        .crop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            max-width: 70%;
+        }
+        .input-translation {
+            height: 60px;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header with Language Selector -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-tractor text-2xl"></i>
+                <h1 class="text-2xl font-bold">KrishiMitra</h1>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="language-selector relative">
+                    <button class="flex items-center space-x-1 bg-white text-green-800 px-3 py-1 rounded-full">
+                        <i class="fas fa-language"></i>
+                        <span>English</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="language-dropdown hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                        <div class="grid grid-cols-2 gap-1 p-2">
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">हिन्दी</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">বাংলা</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">తెలుగు</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">मरााठी</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">தமிழ்</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ਪੰਜਾਬੀ</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ગુજરાતી</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ಕನ್ನಡ</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">മലയാാളം</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ଓଡ଼ିିଆ</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">অসমীয়া</button>
+                            <button class="text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">اردو</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="bg-yellow-400 text-green-900 px-4 py-2 rounded-full font-medium hover:bg-yellow-500 transition">
+                    <i class="fas fa-user mr-1"></i> Farmer Login
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <div class="flex space-x-6">
+                    <a href="#marketplace" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-store mr-1"></i> Marketplace
+                    </a>
+                    <a href="#portfolio" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-images mr-1"></i> Portfolio
+                    </a>
+                    <a href="#shop" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-shopping-cart mr-1"></i> Shop
+                    </a>
+                    <a href="#finance" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-rupee-sign mr-1"></i> Finance
+                    </a>
+                    <a href="#tracking" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-truck mr-1"></i> Tracking
+                    </a>
+                    <a href="#chat" class="text-green-800 hover:text-green-600 font-medium">
+                        <i class="fas fa-comments mr-1"></i> Chat
+                    </a>
+                </div>
+                <div class="relative">
+                    <input type="text" placeholder="Search crops, products..." 
+                           class="border border-gray-300 rounded-full py-2 px-4 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl font-bold mb-4">Empowering Farmers, Eliminating Middlemen</h2>
+                <p class="text-xl mb-6">Direct market access, financial services, and farming resources all in one platform with live translation in 22 Indian languages.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-yellow-400 text-green-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition">
+                        <i class="fas fa-play mr-2"></i> Watch Demo
+                    </button>
+                    <button class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-green-800 transition">
+                        <i class="fas fa-download mr-2"></i> Download App
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Happy Farmer" class="rounded-lg shadow-2xl max-w-md w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Direct to Market Platform</h2>
+            
+            <div class="flex flex-wrap -mx-2 mb-8">
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Sell Your Produce</h3>
+                        <p class="mb-4">List your crops directly to buyers across India without middlemen taking a cut.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            List Your Crops <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Live Market Prices</h3>
+                        <p class="mb-4">Real-time commodity prices from mandis across India to help you get the best deal.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            View Prices <i class="fas fa-chart-line ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Logistics Support</h3>
+                        <p class="mb-4">Affordable transportation options with verified logistics partners.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Arrange Transport <i class="fas fa-truck ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-6 text-green-800">Featured Crops</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Crop Cards -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                         alt="Wheat" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Wheat</h4>
+                        <p class="text-sm text-gray-600">₹2,150/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">+12%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1601593768790-1a6570ac6a3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Rice" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Rice</h4>
+                        <p class="text-sm text-gray-600">₹2,850/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">+8%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1594282486555-1b472b5c9b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Cotton" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Cotton</h4>
+                        <p class="text-sm text-gray-600">₹6,500/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">-3%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1604977047416-9b6bb783ec9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Sugarcane" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Sugarcane</h4>
+                        <p class="text-sm text-gray-600">₹315/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">+5%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1550583720-b253f5b0d7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Soybean" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Soybean</h4>
+                        <p class="text-sm text-gray-600">₹4,200/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">+15%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Pulses" class="w-full h-32 object-cover">
+                    <div class="p-3">
+                        <h4 class="font-semibold">Pulses</h4>
+                        <p class="text-sm text-gray-600">₹5,750/quintal</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">-2%</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Your Farming Portfolio</h2>
+            
+            <div class="flex flex-wrap -mx-2 mb-8">
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-white p-4 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-seedling text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Current Crops</h3>
+                                <p class="text-2xl font-bold">4</p>
+                            </div>
+                        </div>
+                        <a href="#" class="text-green-600 text-sm hover:underline">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-white p-4 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-rupee-sign text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">This Season</h3>
+                                <p class="text-2xl font-bold">₹1,42,500</p>
+                            </div>
+                        </div>
+                        <a href="#" class="text-green-600 text-sm hover:underline">View Sales</a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-white p-4 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-chart-line text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Projected Profit</h3>
+                                <p class="text-2xl font-bold">₹68,200</p>
+                            </div>
+                        </div>
+                        <a href="#" class="text-green-600 text-sm hover:underline">View Analysis</a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-white p-4 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-landmark text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Loans</h3>
+                                <p class="text-2xl font-bold">₹2,50,000</p>
+                            </div>
+                        </div>
+                        <a href="#" class="text-green-600 text-sm hover:underline">Manage Accounts</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-green-800">AI Portfolio Summary</h3>
+                    <button class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-sync-alt mr-1"></i> Refresh
+                    </button>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="mb-4">Based on your current crops (Wheat, Rice, Cotton, and Soybean) and market trends, your projected revenue for this season is ₹1,42,500 with an estimated profit margin of 48%. The wheat prices are rising (+12%) while cotton prices have dipped slightly (-3%). Consider delaying cotton sales if storage is available.</p>
+                    <p>Your fertilizer expenses are 18% below average for similar farms in your region. The AI recommends exploring our partner bank's Kisan Credit Card offer with 4% lower interest than your current loan.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-6 text-green-800">Your Farm Gallery</h3>
+            <div class="portfolio-grid">
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Farm" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-500">15 June 2023</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm">Wheat harvest season in full swing. Expecting 25 quintals per acre this year.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519098901909-b1553a1190af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Farm" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-500">2 May 2023</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm">New irrigation system installed. Water usage down by 30% already.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Farm" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-500">22 April 2023</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm">Organic fertilizer trial on the south field showing promising results.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                         alt="Farm" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-500">10 March 2023</span>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm">Wheat crop looking healthy after the late winter rains.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <button class="bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition">
+                    <i class="fas fa-plus mr-2"></i> Add New Post
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Farm Essentials Shop</h2>
+            
+            <div class="flex flex-wrap -mx-2 mb-8">
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Seeds & Plants</h3>
+                        <p class="mb-4">High-quality seeds for all major crops with germination guarantee.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Browse <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Fertilizers</h3>
+                        <p class="mb-4">Organic and chemical fertilizers with bulk discounts for farmers.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Browse <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Equipment</h3>
+                        <p class="mb-4">Tools and machinery with EMI options and government subsidies.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Browse <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-2 mb-4">
+                    <div class="bg-gray-100 p-4 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-3 text-green-700">Agro Services</h3>
+                        <p class="mb-4">Soil testing, crop consulting, and other essential services.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Browse <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-6 text-green-800">Today's Deals</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Product Cards -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Product" class="w-full h-40 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">20% OFF</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-semibold">Organic Pulse Seeds</h4>
+                        <div class="flex items-center mb-1">
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <span class="text-gray-600 text-xs ml-1">(42)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold">₹450</span>
+                                <span class="text-gray-500 text-sm line-through ml-1">₹550</span>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Product" class="w-full h-40 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">15% OFF</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-semibold">Vermicompost (5kg)</h4>
+                        <div class="flex items-center mb-1">
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <span class="text-gray-600 text-xs ml-1">(36)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold">₹220</span>
+                                <span class="text-gray-500 text-sm line-through ml-1">₹260</span>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1519098901909-b1553a1190af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Product" class="w-full h-40 object-cover">
+                        <span class="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">GOVT SUBSIDY</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-semibold">Drip Irrigation Kit</h4>
+                        <div class="flex items-center mb-1">
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <span class="text-gray-600 text-xs ml-1">(78)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold">₹3,850</span>
+                                <span class="text-gray-500 text-sm line-through ml-1">₹5,500</span>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1604977047416-9b6bb783ec9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Product" class="w-full h-40 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">10% OFF</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-semibold">NPK Fertilizer (50kg)</h4>
+                        <div class="flex items-center mb-1">
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <span class="text-gray-600 text-xs ml-1">(29)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold">₹1,350</span>
+                                <span class="text-gray-500 text-sm line-through ml-1">₹1,500</span>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1550583720-b253f5b0d7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Product" class="w-full h-40 object-cover">
+                        <span class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">NEW</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-semibold">Soybean Seeds (Hybrid)</h4>
+                        <div class="flex items-center mb-1">
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <span class="text-gray-600 text-xs ml-1">(14)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold">₹680</span>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finance Section -->
+    <section id="finance" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Financial Services</h2>
+            
+            <div class="flex flex-wrap -mx-2 mb-8">
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white p-6 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-holding-usd text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Loans & Credit</h3>
+                        </div>
+                        <p class="mb-4">Access to agricultural loans, Kisan Credit Cards, and equipment financing with special farmer rates.</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                            Explore Options <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white p-6 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-piggy-bank text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Savings & Investments</h3>
+                        </div>
+                        <p class="mb-4">High-interest savings accounts and investment options tailored for farmers' cash flow cycles.</p>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            Grow Savings <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white p-6 rounded-lg shadow h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Insurance</h3>
+                        </div>
+                        <p class="mb-4">Crop insurance, equipment insurance, and health coverage with government subsidies.</p>
+                        <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
+                            Get Protected <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-green-800">Multi-Account Management</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="py-3 px-4 text-left">Account Name</th>
+                                <th class="py-3 px-4 text-left">Type</th>
+                                <th class="py-3 px-4 text-left">Balance</th>
+                                <th class="py-3 px-4 text-left">Last Activity</th>
+                                <th class="py-3 px-4 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4">Main Farming Account</td>
+                                <td class="py-3 px-4">Savings</td>
+                                <td class="py-3 px-4">₹1,24,750</td>
+                                <td class="py-3 px-4">2 days ago</td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4">Dairy Business</td>
+                                <td class="py-3 px-4">Current</td>
+                                <td class="py-3 px-4">₹68,420</td>
+                                <td class="py-3 px-4">Today</td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4">Equipment Loan</td>
+                                <td class="py-3 px-4">Loan</td>
+                                <td class="py-3 px-4">-₹2,50,000</td>
+                                <td class="py-3 px-4">1 week ago</td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4">Wife's SHG Account</td>
+                                <td class="py-3 px-4">Joint Savings</td>
+                                <td class="py-3 px-4">₹35,600</td>
+                                <td class="py-3 px-4">3 days ago</td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4">Children's Education</td>
+                                <td class="py-3 px-4">Fixed Deposit</td>
+                                <td class="py-3 px-4">₹1,50,000</td>
+                                <td class="py-3 px-4">1 month ago</td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-right">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                        <i class="fas fa-plus mr-1"></i> Add New Account
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800">Quick Loan Application</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Loan Type</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>Kisan Credit Card</option>
+                                <option>Equipment Loan</option>
+                                <option>Home Improvement</option>
+                                <option>Crop Loan</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Amount Needed (₹)</label>
+                            <input type="number" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="e.g. 50000">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Preferred Bank</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>State Bank of India</option>
+                                <option>Punjab National Bank</option>
+                                <option>HDFC Bank</option>
+                                <option>ICICI Bank</option>
+                                <option>NABARD</option>
+                            </select>
+                        </div>
+                        <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition w-full">
+                            Check Eligibility
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800">Government Schemes</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold">PM Kisan Samman Nidhi</h4>
+                            <p class="text-sm text-gray-600">₹6,000/year direct benefit transfer to farmers.</p>
+                            <a href="#" class="text-green-600 text-sm hover:underline">Check Status</a>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold">Soil Health Card Scheme</h4>
+                            <p class="text-sm text-gray-600">Free soil testing every 3 years with recommendations.</p>
+                            <a href="#" class="text-green-600 text-sm hover:underline">Apply Now</a>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="font-semibold">PM Fasal Bima Yojana</h4>
+                            <p class="text-sm text-gray-600">Crop insurance with 95% premium subsidy for small farmers.</p>
+                            <a href="#" class="text-green-600 text-sm hover:underline">Enroll Now</a>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold">Kisan Credit Card</h4>
+                            <p class="text-sm text-gray-600">Credit up to ₹3 lakh at 4% interest for farmers.</p>
+                            <a href="#" class="text-green-600 text-sm hover:underline">Apply Online</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="tracking" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Shipment Tracking</h2>
+            
+            <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-2">Track Your Shipment</h3>
+                        <p class="text-gray-600">Enter your tracking number to check the status of your order or produce shipment.</p>
+                    </div>
+                    <div class="flex w-full md:w-auto">
+                        <input type="text" placeholder="Enter tracking number" 
+                               class="border border-gray-300 rounded-l px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <button class="bg-green-600 text-white px-6 py-2 rounded-r hover:bg-green-700 transition">
+                            Track <i class="fas fa-search ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="text-xl font-semibold">Your Active Shipments</h3>
+                        <p class="text-gray-600">3 shipments in transit</p>
+                    </div>
+                    <button class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm">
+                        <i class="fas fa-history mr-1"></i> View History
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Shipment 1 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h4 class="font-semibold">Wheat to Mumbai Wholesale Market</h4>
+                                <p class="text-gray-600 text-sm">Tracking #KR789456123</p>
+                            </div>
+                            <div class="mt-2 md:mt-0">
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs">In Transit</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-truck text-gray-500 mr-2"></i>
+                                    <span>Shree Transport Services</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-gray-500 mr-2"></i>
+                                    <span>Driver: Ramesh (9876543210)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="w-full md:w-1/2">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-green-600">Picked Up</span>
+                                    <span class="text-gray-500">20 June, 10:30 AM</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span class="text-gray-500">Expected Delivery</span>
+                                    <span class="text-green-600">22 June, 4:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <div>
+                                <p class="text-sm"><span class="font-semibold">Quantity:</span> 50 quintals</p>
+                                <p class="text-sm"><span class="font-semibold">Vehicle:</span> Truck (MH04GH7896)</p>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-map-marker-alt mr-1"></i> Live Location
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Shipment 2 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h4 class="font-semibold">Organic Fertilizer Delivery</h4>
+                                <p class="text-gray-600 text-sm">Tracking #KR321654987</p>
+                            </div>
+                            <div class="mt-2 md:mt-0">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Out for Delivery</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-truck text-gray-500 mr-2"></i>
+                                    <span>Green Agro Logistics</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-gray-500 mr-2"></i>
+                                    <span>Driver: Suresh (8765432109)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="w-full md:w-1/2">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-green-600">Picked Up</span>
+                                    <span class="text-gray-500">19 June, 2:15 PM</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm mt-1">
+                                    <span class="text-gray-500">Expected Delivery</span>
+                                    <span class="text-green-600">Today, 11:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <div>
+                                <p class="text-sm"><span class="font-semibold">Items:</span> Vermicompost (20 bags), NPK (10 bags)</p>
+                                <p class="text-sm"><span class="font-semibold">Vehicle:</span> Mini Truck (MH03AB1234)</p>
+                            </div>
+                            <button class="text-green-600 hover:text-green-800">
+                                <i class="fas fa-map-marker-alt mr-1"></i> Live Location
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-green-50 rounded-lg p-6 border border-green-100">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800">Schedule Pickup</h3>
+                    <p class="mb-4">Arrange transportation for your produce to be delivered directly to buyers.</p>
+                    <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+                        <i class="fas fa-truck-loading mr-1"></i> Book Now
+                    </button>
+                </div>
+                
+                <div class="bg-blue-50 rounded-lg p-6 border border-blue-100">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">Freight Calculator</h3>
+                    <p class="mb-4">Estimate transportation costs for your goods based on weight and distance.</p>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+                        <i class="fas fa-calculator mr-1"></i> Calculate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Live Chat with Translation</h2>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3">
+                    <!-- Contacts List -->
+                    <div class="border-r border-gray-200">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="font-semibold">Your Connections</h3>
+                        </div>
+                        <div class="overflow-y-auto" style="height: 500px;">
+                            <div class="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <div class="relative">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                                             alt="Profile" class="w-10 h-10 rounded-full">
+                                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium">Rajesh Kumar (Buyer)</h4>
+                                        <p class="text-sm text-gray-600">Wheat order #KR789</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer bg-gray-100">
+                                <div class="flex items-center">
+                                    <div class="relative">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                             alt="Profile" class="w-10 h-10 rounded-full">
+                                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium">Priya Agro Products</h4>
+                                        <p class="text-sm text-gray-600">Rice procurement</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <div class="relative">
+                                        <img src="https://randomuser.me/api/portraits/men/67.jpg" 
+                                             alt="Profile" class="w-10 h-10 rounded-full">
+                                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 rounded-full border-2 border-white"></span>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium">SBI Kisan Branch</h4>
+                                        <p class="text-sm text-gray-600">Loan officer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <div class="relative">
+                                        <img src="https://randomuser.me/api/portraits/men/22.jpg" 
+                                             alt="Profile" class="w-10 h-10 rounded-full">
+                                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium">Green Agro Logistics</h4>
+                                        <p class="text-sm text-gray-600">Shipment #KR321</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <div class="relative">
+                                        <img src="https://randomuser.me/api/portraits/women/28.jpg" 
+                                             alt="Profile" class="w-10 h-10 rounded-full">
+                                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 rounded-full border-2 border-white"></span>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium">Krishi Vigyan Kendra</h4>
+                                        <p class="text-sm text-gray-600">Agricultural expert</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Area -->
+                    <div class="lg:col-span-2">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                     alt="Profile" class="w-8 h-8 rounded-full mr-2">
+                                <div>
+                                    <h4 class="font-medium">Priya Agro Products</h4>
+                                    <p class="text-xs text-gray-600">Online - Buying rice</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-gray-600 hover:text-green-600">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="text-gray-600 hover:text-green-600">
+                                    <i class="fas fa-video"></i>
+                                </button>
+                                <button class="text-gray-600 hover:text-green-600">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-container p-4 bg-gray-50">
+                            <!-- Chat Messages -->
+                            <div class="mb-4">
+                                <div class="flex items-start mb-2">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                         alt="Profile" class="w-6 h-6 rounded-full mr-2">
+                                    <div>
+                                        <div class="bg-white chat-message rounded-lg p-3 shadow-sm">
+                                            <p>नमस्ते, मैं आपके चावल की खरीद में रुचि रखता हूं। क्या आप 50 क्विंटल की आपूर्ति कर सकते हैं?</p>
+                                            <p class="text-xs text-gray-500 mt-1">10:30 AM</p>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mt-1 px-2">
+                                            <i class="fas fa-globe mr-1"></i> Translated from Hindi: "Hello, I'm interested in buying your rice. Can you supply 50 quintals?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-end">
+                                    <div>
+                                        <div class="bg-green-100 chat-message rounded-lg p-3 shadow-sm">
+                                            <p>Yes, I can supply 50 quintals of Sona Masoori rice. Current price is ₹2,850 per quintal.</p>
+                                            <p class="text-xs text-gray-500 mt-1">10:32 AM</p>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mt-1 px-2 text-right">
+                                            <i class="fas fa-globe mr-1"></i> Translated to Hindi: "हां, मैं 50 क्विंटल सोना मसूरी चावल की आपूर्ति कर सकता हूं। वर्तमान कीमत ₹2,850 प्रति क्विंटल है।"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex items-start mb-2">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                         alt="Profile" class="w-6 h-6 rounded-full mr-2">
+                                    <div>
+                                        <div class="bg-white chat-message rounded-lg p-3 shadow-sm">
+                                            <p>क्या आप ₹2,800 प्रति क्विंटल पर बातचीत करने के लिए तैयार हैं? मैं नियमित खरीदार बन सकता हूं।</p>
+                                            <p class="text-xs text-gray-500 mt-1">10:34 AM</p>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mt-1 px-2">
+                                            <i class="fas fa-globe mr-1"></i> Translated from Hindi: "Are you willing to negotiate at ₹2,800 per quintal? I can become a regular buyer."
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-end">
+                                    <div>
+                                        <div class="bg-green-100 chat-message rounded-lg p-3 shadow-sm">
+                                            <p>For regular orders, I can offer ₹2,800. Would you like to place the order now?</p>
+                                            <p class="text-xs text-gray-500 mt-1">10:36 AM</p>
+                                        </div>
+                                        <div class="text-xs text-gray-500 mt-1 px-2 text-right">
+                                            <i class="fas fa-globe mr-1"></i> Translated to Hindi: "नियमित  ऑर्र्डर के लिए, मैं ₹2,800 की पेशकश कर सकता हूं। क्या आप अभी  ऑर्र्डर देना चाहेंगे?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message Input -->
+                        <div class="p-4 border-t border-gray
+</html>
